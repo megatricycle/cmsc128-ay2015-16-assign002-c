@@ -25,3 +25,25 @@ int getHammingDistance(char *str1, char *str2) {
     return distance;
 }
 
+int countSubstrPattern(char *str1, char *str2) {
+    // @TOOD: check size of str
+    char substr[50];
+    int substrCount = 0;
+    int strstrIndex;
+    
+    strcpy(substr, str1);
+    
+    while(substr[0] != '\0') {        
+        // check if str2 can be found at the current letter
+        if((strstr(substr, str2)) !=  NULL) {
+            substrCount++;
+            
+            strcpy(substr, strstr(substr, str2) + 1);
+        }
+        else {
+            break;  
+        }
+    }
+    
+    return substrCount;
+}
