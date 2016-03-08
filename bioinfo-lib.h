@@ -26,7 +26,7 @@ int getHammingDistance(char *str1, char *str2) {
 }
 
 int countSubstrPattern(char *str1, char *str2) {
-    char substr[50];
+    char substr[strlen(str1)];
     int substrCount = 0;
     int strstrIndex;
     
@@ -67,5 +67,23 @@ int isValidString(char *str1, char *str2) {
 }
 
 int getSkew(char *str1, int n) {
-    return 0;
+    // check if n is valid. It must be within 1 to strlen of str1.
+    if(n <= 0 || n > strlen(str1)) {
+        return -999;
+    }
+    
+    int i;
+    int skew = 0;
+    
+    // iterate each element until n
+    for(i = 0; i < n; i++) {
+        if(str1[i] == 'G') {
+            skew++;
+        }
+        else if(str1[i] == 'C') {
+            skew--;
+        }
+    }
+    
+    return skew;
 }
