@@ -15,6 +15,19 @@ void getHammingDistanceTest(char *str1, char *str2, int expectedResult) {
     }
 }
 
+void countSubstrPatternTest(char *str1, char *str2, int expectedResult) {
+    int substrCount = countSubstrPattern(str1, str2);
+     
+    printf("countSubstrPattern(\"%s\", \"%s\") ", str1, str2);
+    
+    if(substrCount == expectedResult) {
+        printf("PASSED\n");
+    }
+    else {
+        printf("FAILED (Expected %i, got %i.)\n", expectedResult, substrCount);
+    }
+}
+
 int main() {
     printf("\n");
     
@@ -36,6 +49,22 @@ int main() {
     strcpy(str2, "AG");
     
     getHammingDistanceTest(str1, str2, -1);
+    
+    // test countSubstrPattern
+    strcpy(str1, "AATATATAGG");
+    strcpy(str2, "GG");
+    
+    countSubstrPatternTest(str1, str2, 1);
+    
+    strcpy(str1, "AATATATAGG");
+    strcpy(str2, "ATA");
+    
+    countSubstrPatternTest(str1, str2, 3);
+    
+    strcpy(str1, "AATATATAGG");
+    strcpy(str2, "ACTGACTGACTG");
+    
+    countSubstrPatternTest(str1, str2, 0);
     
     printf("\n");
     
