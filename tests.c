@@ -49,7 +49,7 @@ void isValidStringTest(char *str1, char *str2, int expectedResult) {
 void getSkewTest(char *str1, int n, int expectedResult) {
     int result = getSkew(str1, n);
      
-    printf("getSkew(\"%s\", \"%i\") ", str1, n);
+    printf("getSkew(\"%s\", %i) ", str1, n);
     
     if(result == expectedResult) {
         printf("PASSED\n");
@@ -64,91 +64,31 @@ int main() {
     printf("\n");
     
     // test hamming distance
-    char str1[50];
-    char str2[50];
-    
-    strcpy(str1, "AACCTT");
-    strcpy(str2, "GGCCTT");
-    
-    getHammingDistanceTest(str1, str2, 2);
-    
-    strcpy(str1, "TCGGA");
-    strcpy(str2, "AAAAG");
-    
-    getHammingDistanceTest(str1, str2, 5);
-    
-    strcpy(str1, "A");
-    strcpy(str2, "AG");
-    
-    getHammingDistanceTest(str1, str2, -1);
-    
-    strcpy(str1, "");
-    strcpy(str2, "");
-    
-    getHammingDistanceTest(str1, str2, 0);
+    getHammingDistanceTest("AACCTT", "GGCCTT", 2);
+    getHammingDistanceTest("TCGGA", "AAAAG", 5);
+    getHammingDistanceTest("A", "AG", -1);
     
     // test countSubstrPattern
-    strcpy(str1, "AATATATAGG");
-    strcpy(str2, "GG");
-    
-    countSubstrPatternTest(str1, str2, 1);
-    
-    strcpy(str1, "AATATATAGG");
-    strcpy(str2, "ATA");
-    
-    countSubstrPatternTest(str1, str2, 3);
-    
-    strcpy(str1, "AATATATAGG");
-    strcpy(str2, "ACTGACTGACTG");
-    
-    countSubstrPatternTest(str1, str2, 0);
+    countSubstrPatternTest("AATATATAGG", "GG", 1);
+    countSubstrPatternTest("AATATATAGG", "ATA", 3);
+    countSubstrPatternTest("AATATATAGG", "ACTGACTGACTG", 0);
     
     // test isValidString
-    strcpy(str1, "AAGGCTATGC");
-    strcpy(str2, "ACGT");
     
-    isValidStringTest(str1, str2, 1);
-    
-    strcpy(str1, "AAGGCTATGa");
-    strcpy(str2, "ACGT");
-    
-    isValidStringTest(str1, str2, 0);
-    
-    strcpy(str1, "ACGT");
-    strcpy(str2, "ACGT");
-    
-    isValidStringTest(str1, str2, 1);
-    
-    strcpy(str1, "ACGT101_");
-    strcpy(str2, "ACGT");
-    
-    isValidStringTest(str1, str2, 0);
-    
-    strcpy(str1, "091212345");
-    strcpy(str2, "0123456789");
-    
-    isValidStringTest(str1, str2, 1);
+    isValidStringTest("AAGGCTATGC", "ACGT", 1);
+    isValidStringTest("AAGGCTATGa", "ACGT", 0);
+    isValidStringTest("ACGT", "ACGT", 1);
+    isValidStringTest("ACGT101_", "ACGT", 0);
+    isValidStringTest("091212345", "0123456789", 1);
     
     // test getSkew
-    strcpy(str1, "GGCCAC");
-    
-    getSkewTest(str1, 1, 1);
-    
-    strcpy(str1, "GGCCAC");
-    
-    getSkewTest(str1, 2, 2);
-    
-    strcpy(str1, "GGCCAC");
-    
-    getSkewTest(str1, 3, 1);
-    
-    strcpy(str1, "GGCCAC");
-    
-    getSkewTest(str1, 4, 0);
-    
-    strcpy(str1, "GGCCAC");
-    
-    getSkewTest(str1, 5, 0);
+    getSkewTest("GGCCAC", 1, 1);
+    getSkewTest("GGCCAC", 2, 2);    
+    getSkewTest("GGCCAC", 3, 1);    
+    getSkewTest("GGCCAC", 4, 0);    
+    getSkewTest("GGCCAC", 5, 0);
+    getSkewTest("GGCCAC", -5, -999);
+    getSkewTest("GGCCAC", 10, -999);
     
     printf("\n");
     
