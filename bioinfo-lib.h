@@ -48,5 +48,20 @@ int countSubstrPattern(char *str1, char *str2) {
 }
 
 int isValidString(char *str1, char *str2) {
-    return 0;
+    int i;
+    char currentLetter[2];
+    
+    // iterate each element in str1
+    for(i = 0; i < strlen(str1); i++) {
+        // convert character to string
+        currentLetter[0] = str1[i];
+        currentLetter[1] = '\0';
+        
+        // check if current character is within str2
+        if(countSubstrPattern(str2, currentLetter) == 0) {
+            return 0;
+        }
+    }
+    
+    return 1;
 }
