@@ -25,6 +25,9 @@ int getHammingDistance(char *str1, char *str2) {
     return distance;
 }
 
+/*
+    Returns the the number of occurrence of str2 in str1.
+*/
 int countSubstrPattern(char *str1, char *str2) {
     char substr[strlen(str1)];
     int substrCount = 0;
@@ -47,6 +50,9 @@ int countSubstrPattern(char *str1, char *str2) {
     return substrCount;
 }
 
+/*
+    Returns 1 if all letters in str1 are in str2, else returns 0;
+*/
 int isValidString(char *str1, char *str2) {
     int i;
     char currentLetter[2];
@@ -66,6 +72,9 @@ int isValidString(char *str1, char *str2) {
     return 1;
 }
 
+/*
+    Returns the number of Gs minus the number of Cs in the first n nucleotides.
+*/
 int getSkew(char *str1, int n) {
     // check if n is valid. It must be within 1 to strlen of str1.
     if(n <= 0 || n > strlen(str1)) {
@@ -88,6 +97,9 @@ int getSkew(char *str1, int n) {
     return skew;
 }
 
+/*
+    Returns the maximum number of Gs minus the number of Cs in the first n nucleotides.
+*/
 int getMaxSkewN(char *str1, int n) {
     // check if n is valid. It must be within 1 to strlen of str1.
     if(n <= 0 || n > strlen(str1)) {
@@ -117,6 +129,9 @@ int getMaxSkewN(char *str1, int n) {
     return maxSkew;
 }
 
+/*
+    Returns the minimum number of Gs minus the number of Cs in the first n nucleotides.
+*/
 int getMinSkewN(char *str1, int n) {
     // check if n is valid. It must be within 1 to strlen of str1.
     if(n <= 0 || n > strlen(str1)) {
