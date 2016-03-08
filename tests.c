@@ -46,6 +46,20 @@ void isValidStringTest(char *str1, char *str2, int expectedResult) {
     }
 }
 
+void getSkewTest(char *str1, int n, int expectedResult) {
+    int result = getSkew(str1, n);
+     
+    printf("getSkew(\"%s\", \"%i\") ", str1, n);
+    
+    if(result == expectedResult) {
+        printf("PASSED\n");
+    }
+    else {
+        printf("FAILED (Expected %i, got %i.)\n", expectedResult, result);
+        errorCount++;
+    }
+}
+
 int main() {
     printf("\n");
     
@@ -114,6 +128,27 @@ int main() {
     strcpy(str2, "0123456789");
     
     isValidStringTest(str1, str2, 1);
+    
+    // test getSkew
+    strcpy(str1, "GGCCAC");
+    
+    getSkewTest(str1, 1, 1);
+    
+    strcpy(str1, "GGCCAC");
+    
+    getSkewTest(str1, 2, 2);
+    
+    strcpy(str1, "GGCCAC");
+    
+    getSkewTest(str1, 3, 1);
+    
+    strcpy(str1, "GGCCAC");
+    
+    getSkewTest(str1, 4, 0);
+    
+    strcpy(str1, "GGCCAC");
+    
+    getSkewTest(str1, 5, 0);
     
     printf("\n");
     

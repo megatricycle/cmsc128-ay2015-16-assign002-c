@@ -65,3 +65,7 @@ int isValidString(char *str1, char *str2) {
     
     return 1;
 }
+
+int getSkew(char *str1, int n) {
+    return 0;
+}
