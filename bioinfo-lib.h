@@ -26,7 +26,6 @@ int getHammingDistance(char *str1, char *str2) {
 }
 
 int countSubstrPattern(char *str1, char *str2) {
-    // @TOOD: check size of str
     char substr[50];
     int substrCount = 0;
     int strstrIndex;
@@ -46,4 +45,8 @@ int countSubstrPattern(char *str1, char *str2) {
     }
     
     return substrCount;
+}
+
+int isValidString(char *str1, char *str2) {
+    return 0;
 }
