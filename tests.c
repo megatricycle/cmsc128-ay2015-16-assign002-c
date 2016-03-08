@@ -60,6 +60,20 @@ void getSkewTest(char *str1, int n, int expectedResult) {
     }
 }
 
+void getMaxSkewNTest(char *str1, int n, int expectedResult) {
+    int result = getMaxSkewN(str1, n);
+     
+    printf("getMaxSkewN(\"%s\", %i) ", str1, n);
+    
+    if(result == expectedResult) {
+        printf("PASSED\n");
+    }
+    else {
+        printf("FAILED (Expected %i, got %i.)\n", expectedResult, result);
+        errorCount++;
+    }
+}
+
 int main() {
     printf("\n");
     
@@ -89,6 +103,15 @@ int main() {
     getSkewTest("GGCCAC", 5, 0);
     getSkewTest("GGCCAC", -5, -999);
     getSkewTest("GGCCAC", 10, -999);
+    
+    // test getMaxSkewN
+    getMaxSkewNTest("GGCCAC", 1, 1);
+    getMaxSkewNTest("GGCCAC", 2, 2);    
+    getMaxSkewNTest("GGCCAC", 3, 2);    
+    getMaxSkewNTest("GGCCAC", 4, 2);    
+    getMaxSkewNTest("GGCCAC", 5, 2);
+    getMaxSkewNTest("GGCCAC", -5, -999);
+    getMaxSkewNTest("GGCCAC", 10, -999);
     
     printf("\n");
     
