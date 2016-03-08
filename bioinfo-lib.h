@@ -87,3 +87,32 @@ int getSkew(char *str1, int n) {
     
     return skew;
 }
+
+int getMaxSkewN(char *str1, int n) {
+    // check if n is valid. It must be within 1 to strlen of str1.
+    if(n <= 0 || n > strlen(str1)) {
+        return -999;
+    }
+    
+    int i;
+    int maxSkew = NULL;
+    int currentSkew;
+    char substr[strlen(str1)];
+    
+    for(i = 0; i < n; i++) {
+        // get substring from 0 to i
+        strcpy(substr, str1);
+        substr[i + 1] = '\0';
+        
+        // get skew of substring
+        currentSkew = getSkew(substr, strlen(substr)); 
+            
+        // check if skew of substring is greater than max skew
+        if(maxSkew == NULL || currentSkew > maxSkew) {
+            maxSkew = currentSkew;
+        }
+    }
+    
+    
+    return maxSkew;
+}
